@@ -124,7 +124,7 @@ public class MainForm extends JFrame {
         urlLabel=new JLabel("官网链接:");
         urlTextField=new JTextField("https://www.peropero.pw");
         keyWordLabel=new JLabel("搜索关键字:");
-        keyWordTextField=new JTextField(20);
+        keyWordTextField=new JTextField(100);
         searchBtn=new JButton("搜索");
         totalRecordCountLabel=new JLabel("总记录数:");
         totalPageCountLabel=new JLabel("总页数:");
