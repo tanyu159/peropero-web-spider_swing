@@ -18,10 +18,11 @@ import java.io.IOException;
 public class WebSpider {
     /**
      * 通过URL获得该页面的H5源码
+     *
      * @param url
      * @return
      */
-    public static String getH5Code(String url){
+    public static String getH5Code(String url) {
         String html = "";
         //1.生成httpclient，相当于该打开一个浏览器
         CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -39,7 +40,7 @@ public class WebSpider {
                 //5.获取响应内容
                 HttpEntity httpEntity = response.getEntity();
                 html = EntityUtils.toString(httpEntity, "utf-8");
-//                System.out.println(html);
+                //                System.out.println(html);
             } else {
                 //如果返回状态不是200，比如404（页面不存在）等，根据情况做处理，这里略
                 System.out.println("返回状态不是200");

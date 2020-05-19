@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.UUID;
 
 /**
  * 下载本子工具类
@@ -22,7 +23,8 @@ public class DownLoadBenZi {
      * @param rootPath 需要以/结尾,且rootPath存在且具有权限
      */
     public static boolean download(BenZi benZi, String rootPath) {
-        File catalog = new File(rootPath + benZi.getTitle());
+        String folderName=UUID.randomUUID().toString();
+        File catalog = new File(rootPath + folderName);
         if (!catalog.exists()) {
             boolean isCreate = catalog.mkdir();
             if (!isCreate) {
@@ -39,7 +41,7 @@ public class DownLoadBenZi {
             try {
                 URL url = new URL(temp.getPictureUrl());
                 inputStream = url.openStream();
-                fileOutputStream = new FileOutputStream(rootPath + benZi.getTitle() + "\\" + temp.getPictureName() + ".jpg");
+                fileOutputStream = new FileOutputStream(rootPath + folderName + "\\" + temp.getPictureName() + ".jpg");
                 byte[] buffer = new byte[1024];
                 int len = 0;
                 while ((len = inputStream.read(buffer)) != -1) {
